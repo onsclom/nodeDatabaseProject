@@ -13,7 +13,7 @@ To do list:
 
 1. `npm i`
     - this installs necessary packages
-2. `node index.js`
+2. `node server.js`
     - this runs the server
 
 Then the server is listening at localhost:3000
