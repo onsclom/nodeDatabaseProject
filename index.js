@@ -1,4 +1,5 @@
 let loadingText = document.getElementById("LoadingText");
+let entriesLoadingText = document.getElementById("EntriesLoadingText");
 let submitButton = document.getElementById("SubmitButton");
 
 let form = {
@@ -26,12 +27,13 @@ function getEntries() {
     };
 
     document.getElementById("EntryHolder").innerHTML = "";
-
+    entriesLoadingText.style.display = "block";
 
     fetch( apiUrl+"/entries", options )
         .then(response => response.json())
         .then(json => {
             //loading entries!
+
 
             const message = JSON.parse(json)
 
@@ -39,22 +41,12 @@ function getEntries() {
             {
                 for (let row of message.rows)
                 {
-                    /*
-                    <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">jang808</h5>
-                    <p class="card-text">First Name: Harry</p>
-                    <p class="card-text">Last Name: Harry</p>
-                </div>
-            </div>
-                    */
-
-                    let newHTML = "<div class='card'><div class='card-body'>";
+                    let newHTML = "<div class='mx-auto my-2'><div class='card justify-content-md-center'><div class='card-body'>";
                     newHTML += "<h5 class='card-title'>" + row.username + "</h5>";
                     newHTML += "<hr/>";
                     newHTML += "<p class='card-text'> First Name: " + row.firstname + "</p>";
                     newHTML += "<p class='card-text'> Last Name: " + row.lastname + "</p>";
-                    newHTML += "</div></div>"
+                    newHTML += "</div></div></div>"
 
                     document.getElementById("EntryHolder").innerHTML += newHTML;
                 }
@@ -64,6 +56,8 @@ function getEntries() {
                 console.log(message);
                 //failed
             }
+
+            entriesLoadingText.style.display = "none";
 
         })
         .catch((error) => {
@@ -78,6 +72,7 @@ getEntries();
 function changeLoadingText() {
     curLoad += 1;
     loadingText.textContent = loadingTexts[curLoad%loadingTexts.length];
+    entriesLoadingText.textContent = loadingTexts[curLoad%loadingTexts.length];
     setTimeout(changeLoadingText, 500);
 }
 
