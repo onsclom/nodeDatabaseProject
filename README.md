@@ -5,9 +5,15 @@ To do list:
     - username ✓
     - first name ✓
     - last name ✓
-- submit entries to db
-    - display some confirmation that info was sent
-- use visual studio code
+- submit entries to db ✓
+    - display some confirmation that info was sent ✓
+- display entries ✓
+
+## Use the demo
+
+I am currently hosting the Node.js backend with heroku, the static webpage through github pages with this repo, and the SQL database with ElephantSQL. 
+
+Try the demo [here](https://onsclom.github.io/nodeDatabaseProject/).
 
 ## To run server
 
