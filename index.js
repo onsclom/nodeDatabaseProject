@@ -15,7 +15,7 @@ let form = {
 let loadingTexts = ["Loading","Loading.","Loading.."];
 let curLoad = 0
 
-const apiUrl = "http://localhost:3000";
+const apiUrl = "https://node-js-form.herokuapp.com";
 
 function getEntries() {
     const options = {
